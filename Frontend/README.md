@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# Learning Management System Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of a full-stack LMS built with React, TypeScript, and Vite. It provides a responsive dashboard for admins, instructors, and students to manage courses, enrollments, assignments, and more.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Role-based dashboards (Admin, Instructor, Student)
+- Course catalog and enrollment system
+- Assignment submissions and quiz attempts
+- Progress tracking and analytics
+- Secure authentication with JWT
+- Responsive design
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- TypeScript
+- Vite
+- Lucide React (icons)
+- Axios (HTTP client)
+- React Router DOM
+- Context API (state management)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd Frontend
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the Frontend directory with:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+VITE_API_URL=http://localhost:5000/api
 ```
+
+## Available Scripts
+
+- `pnpm run dev` - Start development server (http://localhost:5173)
+- `pnpm run build` - Build for production
+- `pnpm run preview` - Preview production build
+- `pnpm run lint` - Run ESLint
+
+## Project Structure
+
+```
+Frontend/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── hooks/          # Custom React hooks
+│   ├── contexts/       # React context providers
+│   ├── services/       # API service functions
+│   ├── utils/          # Utility functions
+│   ├── assets/         # Static assets
+│   ├── App.tsx         # Main app component
+│   └── main.tsx        # Entry point
+├── public/             # Static files
+├── index.html          # HTML template
+├── vite.config.ts      # Vite configuration
+├── tsconfig.json       # TypeScript configuration
+└── package.json        # Dependencies and scripts
+```
+
+## Screenshots
+
+See the root README.md for screenshots of the application.
+
+## Backend Setup
+
+Make sure to set up the backend first (see Backend/README.md) before running the frontend.
+
+The frontend expects the backend to be running on `http://localhost:5000/api`.
